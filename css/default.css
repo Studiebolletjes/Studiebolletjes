@@ -1,0 +1,25 @@
+img.example{
+	width: 100px;
+	height: 100px;
+}
+
+.sort{
+	margin: 0px 50px 0px 0px;
+	float: left;
+}
+.sort label{
+	display: inline-block;
+	width: 200px;
+	text-align: left;
+}
+
+.exampleScreen {
+	width: 49%;
+	height: 100%;
+	float: left;
+}
+
+.fullscreen {
+	height: 99%;
+	width: 99%;
+}
