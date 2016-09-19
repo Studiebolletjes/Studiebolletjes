@@ -21,8 +21,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="David de Prez" />
 
-	<?php $menu->setHeader(); ?>
     <script src="js/jquery-1.10.2.js"></script>
+    <?php $menu->setHeader(); ?>
     <script src="/js/MessageBox.js"></script>
     <script src="js/login.js"></script>
 
@@ -44,6 +44,7 @@
     </noscript>
     
     <form action="/login.php" method="post">
+    	<!--Credentials-->
         <fieldset>
             <div>
                 <label>Gebruikernaam: </label>

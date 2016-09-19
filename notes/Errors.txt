@@ -1,0 +1,51 @@
+//database errors (E1-E4)
+E1: 	Can not connect to Database
+E2: 	Error with binding parameters to querry
+E2.1: 	Can not prepaire querry for binding		//Only for temporarily uses
+E3: 	Error with executing querry
+E4: 	Error with getting data
+
+//login/account errors (E5-E14)
+E5: 	Username or password wrong (also E41)
+E6: 	Account not activated
+E7: 	Unknown command without logged in
+E8: 	Unknown command logged in
+E9: 	not logged in
+E10: 	Not enough rights						//change from: E25
+
+//IO errors (E15-E30)
+E15: 	Group directory not exists
+E16: 	Unexpected directory
+E17: 	File to large
+E18: 	Can not abort file upload
+E19: 	Unknown extension
+E20: 	Can not make directory
+E21: 	Can not copy file
+E22: 	Can not remove file
+E23: 	Can not rename file/directory
+E24:	Can not find file
+E25:	File already exists
+E26:	Subject directory not found
+
+//coding errors (E30-E40)
+E30: unknown return type
+E31: not finished
+
+//ajax communication errors (E40-E50)
+E40: 	missing/wrong parameters				//change from: E10
+E41 	(+E5): result from querry are empty		//change from: E11
+E42: 	No question available					//change from: E12
+E43: 	JSON failed decoding					//change from: E13
+E44: 	Ajax error 								//change from: E14 from E28
+
+
+//not sorted (E100 - E200)
+E100: 	Unexpected/unknown state				//change from: E29
+E101: 	Unknown error							//change from: E24
+E102: 	Can not create xmlHTTP					//change from: E27
+E103:	Password and repeated password not same
+E104:	Can not remove yourself
+
+//confirms
+OK:1 	login succeed
+OK:2 	logout succeed

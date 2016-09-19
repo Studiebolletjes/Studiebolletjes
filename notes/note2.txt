@@ -1,0 +1,5 @@
+rights:
+	0: administrator
+	1: teacher
+	2: student
+	?3: alone ruler

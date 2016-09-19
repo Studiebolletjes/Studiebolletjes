@@ -112,6 +112,7 @@
     </noscript>
 	
 	<form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+		<!--Credentials-->
 		<fieldset>
 			<legend>Inlog gegevens</legend>
 			<div class="sort">
@@ -127,6 +128,10 @@
 				<input type="password" size="43" maxlength="31" name="password_repeat" value="" />
 			</div>
 		</fieldset>
+		
+		<!--buttons-->
+		<em>Lege en niet gewijzigde velden worden niet opgeslagen</em>
+		<br />
 		<input type="submit" value="Opslaan" />
 	</form>
 </body>

@@ -1,7 +1,6 @@
 <?php
 	include("/php/sessions.php");
 	include("/php/fileManager.php");
-	//include("/php/database.php"); this already include in filemanager
 
 	//check logged in
 	$account = new account();
@@ -118,6 +117,7 @@
 
 <body>
 	<form>
+		<!--General info-->
 		<fieldset>
 			<div>
 				<label>Lijst: </label>
@@ -135,11 +135,13 @@
 				<a href="/list.php">Alle lijsten</a>
 			</div>
 		</fieldset>
+		<!--All wrong words-->
 		<fieldset>
 		<?php		
 			//check if there are wrong words
 			if (count($review["words"]) != 0){
 		?>
+		<!--Show all wrong words-->
 		<table>
 			<tr>
 				<th>Vraag</th>
@@ -154,7 +156,7 @@
 		<?php
 			} elseif ($review['subject'] != "") {
 		?>
-	
+		<!--No wrong words-->
 		<em>Goed gedaan! Je heb alles goed!</em>
 	
 		<?php

@@ -23,8 +23,8 @@
 	<meta charset="utf-8" />
     <meta name="author" content="David de Prez" />
 
-	<?php $menu->setHeader(); ?>
 	<script src="js/jquery-1.10.2.js"></script>
+	<?php $menu->setHeader(); ?>
 	<script src="/js/MessageBox.js"></script>
 	<script src="/js/users.js"></script>
 	
@@ -45,18 +45,20 @@
 			<input type="button" name="bntNewUser" id="bntNewUser" value="Toevoegen" onclick="javascript:gotoUrl('/addUser.php')" />
 		</fieldset>	
 		<fieldset>
+			<!--List of all teachers, added by javascript-->
 			<legend>Leraren</legend>
 			<div id="divTeachers">
 			</div>
 		</fieldset>
 		<fieldset>
+			<!--List of all students, added by javascript-->
 			<legend>Leerlingen</legend>
 			<div id="divStudents">
 			</div>
 		</fieldset>
 	</form>
 	
-	
+	<!--Request all users when page is loading-->
 	<script>getUsers("Teachers", drawTeachers); getUsers("Students", drawStudents); </script>
 </body>
 </html>

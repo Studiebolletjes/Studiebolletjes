@@ -1,18 +1,24 @@
 $(document).ready(document_loaded);
-var slcUsers, objExample, cssFormInput
+var slcUsers, slcMode, objExample, cssFormInput
 //var exampleScreen = "<object type=\"type/html\" data=\"/list.php\"  class=\"fullscreen\">Uw webbrowser kan geen voorbeeld tonen. Update uw webbrowser of gebruik een andere.</object>";
 var exampleScreen = "<iframe src=\"/list.php\"  class=\"fullscreen\"></iframe>";
 
 function init(){
 	slcUsers = $("#slcUsers");
+	slcMode = $("#slcMode");
 	objExample = $("#objExample");
 	cssFormInput = $("#cssFormInput");
 	
+	//add a method to onchange handler
 	slcUsers.change(activateCssMode);
+	slcMode.change(loadCssForm);
+	
+	//load all students
 	getUsers("Students", addUsers);
 }
 
 function addUsers(users){
+	//all all users to dropdown box
 	users.forEach(function(user){		
 		slcUsers.append($('<option>', {
 			value: user.username,
@@ -20,13 +26,16 @@ function addUsers(users){
 		}));
 	});
 	
+	//enable css mode load example screen
 	activateCssMode();
 }
 
 function loadCssForm(){
 	var formdata = new FormData();
 	formdata.append("user", slcUsers.val());
+	formdata.append("mode", slcMode.val());
 	
+	//load all input fields
     $.ajax({
         url: "php/cssFormInput.php",
         type: "POST",
@@ -50,6 +59,7 @@ function activateCssMode(){
 	formdata.append("action", "CHECK");
 	formdata.append("user", slcUsers.val());
 	
+	//send request to activate CSS mode
     $.ajax({
         url: "php/cssManager.php",
         type: "POST",
@@ -70,6 +80,7 @@ function activateCssMode(){
                 return;
             }
 
+			//load example Screen if request succeeded
             if (reply.succeed == true) {
             	objExample.html(exampleScreen);
             	loadCssForm();
@@ -84,6 +95,7 @@ function activateCssMode(){
 }
 
 function setChanged(id){
+	//mark as changed
 	$("#status_" + id).val("changed");
 }
 
@@ -91,7 +103,9 @@ function save(id){
 	while (true){
 		var status = $("#status_" + id).val();
 		
+		//check of at the end or not changed
 		if (status == undefined){
+			//reload example screen
 			MessageBox.Show("Changed has been saved");
 			activateCssMode();
 			break;
@@ -100,6 +114,7 @@ function save(id){
 			continue;
 		}
 		
+		//save field
 		var selector = $("#selector_" + id).val();
 		var property = $("#property_" + id).html();
 		var value = $("#value_" + id).val();
@@ -116,7 +131,7 @@ function sendItem(selector, property, value, nextId){
 	formdata.append("property", property);
 	formdata.append("value", value);
 	
-	
+	//save a property
     $.ajax({
         url: "php/cssManager.php",
         type: "POST",
@@ -138,6 +153,7 @@ function sendItem(selector, property, value, nextId){
             }
 
             if (reply.succeed == true) {
+            	//save next item
             	save(nextId);
                 return;
             } else {
@@ -154,6 +170,7 @@ function closeEditor(){
     formdata.append("action", "STOP");
     formdata.append("user", "");
 
+	//request to exit Editor mode
     $.ajax({
         url: "php/cssManager.php",
         type: "POST",
@@ -174,6 +191,7 @@ function closeEditor(){
                 return;
             }
 
+			//if succeed, redirect to list page
             if (reply.succeed == true) {
             	window.location.replace("/list.php");
                 return;

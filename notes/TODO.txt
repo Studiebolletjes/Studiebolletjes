@@ -1,0 +1,9 @@
+- Make 'Edit' (see notes)
+- Show pictures (see notes)
+- Users overview (overview for all users)
+- Edit user style
+- About
+- Contact
+- Help
+- Registration
+- purpose

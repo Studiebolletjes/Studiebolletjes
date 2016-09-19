@@ -37,17 +37,24 @@
 	</noscript>
 	
 	<div class="exampleScreen">
-		<form action="/styleEditor.php" method="post">
+		<form action="/styleEditor.php" method="post"  class="scrollbar">
 			<div>
+				<!--Basic info-->
 				<select id="slcUsers" name="slcUsers"></select>
+				<select id="slcMode" name="slcMode">
+					<option value="NORM">Basis weergave</option>
+					<option value="ADV">Geavanceerd weergave</option>
+				</select>
+				<br />
 				<input type="button" onclick="javascript:save(0)" value="Save" />
 				<input type="button" onclick="javascript:closeEditor()" value="Editor sluiten"/>
 			</div>
 			<div id="cssFormInput">
-				
+				<!--Fields for edit-->
 			</div>
 		</form>
 	</div>
+	<!--Example-->
 	<div class="exampleScreen" id="objExample"></div>
 </body>
 </html>

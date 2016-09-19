@@ -7,8 +7,9 @@ class Menu{
 	}
 	public function drawMenu(account $account) {
 		?>
-		<div id="MainMenu">
-			<ul>
+		<div id="MainMenu" class="dropdownMenu">
+			<label id="menu_label">MENU</label>
+			<ul id="menu_dropdownActive" hidden="hidden">
 				<?php
 				if ($account->getLoggedIn()){
 					if ($account->getRights() == 1){

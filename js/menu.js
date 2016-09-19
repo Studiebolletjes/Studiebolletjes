@@ -1,3 +1,30 @@
+$(document).ready(document_loaded);
+var dropdownMenu;
+var lblMenu;
+var ulMenu;
+
+function init(){
+	
+	dropdownMenu = $(".dropdownMenu");
+	lblMenu = $("#menu_label");
+	ulMenu = $("#menu_dropdownActive");
+	
+	lblMenu.mouseenter(lblMenu_OnMouseEnter);
+	dropdownMenu.mouseleave(lblMenu_OnMouseoLeave);
+}
+
+function document_loaded(){
+	init();
+}
+
+function lblMenu_OnMouseEnter(){
+	ulMenu.show();
+}
+
+function lblMenu_OnMouseoLeave(){
+	ulMenu.hide();
+}
+
 function bntLogout_OnClick() {
     var formdata = new FormData();
     formdata.append("logout", true);

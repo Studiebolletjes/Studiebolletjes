@@ -1,0 +1,71 @@
+
+	/**
+	* Send querry to database 
+	* 
+	* @param string $querry The querry string
+	* 
+	* @return mixed The result of the mysqli::querry() function
+	*/
+	public function query($querry){
+		//connect to database
+		$connection = $this->connect();
+		
+		//send querry to database
+		$result = $connection->query($querry);
+		
+		return $result;
+	}
+	
+	/**
+	* Fetch rows from the database (from select querry)
+	* 
+	* @param string $querry
+	* 
+	* @return bool False on failure / array Database rows on success
+	*/
+	public function select($querry){
+		//define array and run querry
+		$rows = array();
+		$result = this->query($querry);
+		
+		//error handling for invalid querry
+		if ($result === FALSE){
+			return FALSE;
+		}
+		
+		//fetch querry value in rows
+		while($row = $result->fetchfetch_assoc()){
+			$rows[] = $rows
+		}
+		
+		return $rows;
+	}
+	
+	
+	/**
+	* Quoted (') and ascape value for use in database querry
+	* 
+	* @param string $value
+	* 
+	* @return string The quoted and escaped string
+	*/
+	public function quoted($value){
+		$connection = this->connect();
+		return "'" . $connection->real_escape_string($value) . ".";
+	}	
+	/**
+	* Return the last error from the database
+	* 
+	* @return string Database error message
+	*/
+	
+	
+	/**
+	* Get the last error from the database
+	* 
+	* @return string Database error message
+	*/
+	public function error(){
+		$connection = $this->connect();
+		return $connection->error;
+	}

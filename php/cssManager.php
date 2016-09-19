@@ -30,13 +30,14 @@
 	if (!isset($_POST['action'], $_POST['user'])){
 		error(40);
 	}
-	
+	//creat css editor with valid user
 	$_POST['user'] = upload::escape($_POST['user']);
 	$path = $path . $_POST['user'] . ".css";
 	$cssEditor = new CssEditor($path);
 	
 	switch ($_POST['action']){
 		case "GET":
+			//give readed css file as array
 			$returnArray["data"] =  $cssEditor->getCssData();
 			$returnArray['succeed'] = TRUE;
 			unset($returnArray["error"]);
@@ -48,6 +49,7 @@
 				error(40);
 			}
 			
+			//add/edit property
 			$cssEditor->setProperty($_POST['selector'], $_POST['property'], $_POST['value']);
 			$cssEditor->save($path);
 			$returnArray['succeed'] = TRUE;
@@ -56,6 +58,7 @@
 			break;
 
 		case "CHECK":
+			//enable editor mode
 			$returnArray["error"] = $account->setEditorMode($_POST['user'], 2);
 			if ($returnArray["error"] === TRUE){
 				$returnArray['succeed'] = TRUE;
@@ -65,6 +68,7 @@
 			break;
 			
 		case "STOP":
+			//disable editor mode
 			$returnArray["error"] = $account->resetEditorMode();
 			if ($returnArray["error"] === TRUE){
 				$returnArray['succeed'] = TRUE;

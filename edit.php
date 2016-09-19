@@ -49,8 +49,8 @@
 	</noscript>
 	
 	<form action="/edit.php" method="post">
+		<!--Layout basic info-->
 		<fieldset>
-			<!--Layout basic info-->
 			<legend>Basis</legend>
 			<input type="text" id="txtSubjectName" name="txtSubjectName" maxlength="15" size="16" disabled="true" value="<?php echo($_GET['subject']) ?>"/>
 			<input type="button" value="Wijzigen" id="bntSave" name="bntSave"/>
@@ -69,15 +69,23 @@
 					<th>Meerkeuze antwoorden</th>
 				</tr>
 				
+				<!--All rows-->
 				<?php
-				foreach($rows as $id => $row){?>
+				foreach($rows as $id => $row){
+					//Create row with data
+					?>
 					<tr id="row_<?php echo($id) ?>">
+						<!--Control info (ID, etc)-->
 						<td>
 							<input type="hidden" value="saved" name="state_<?php echo($id) ?>" id="state_<?php echo($id) ?>"/>
 							<input type="hidden" value="<?php echo($row['id']) ?>" name="id_<?php echo($id) ?>" id="id_<?php echo($id) ?>"/>
 							<label><?php echo($id); ?></label>
 						</td>
+						
+						<!--Question-->
 						<td><input maxlength="40" type="text" name="word_<?php echo($id); ?>" id="word_<?php echo($id); ?>" value="<?php echo($row['question']); ?>" onchange="javascript:row_onchange(<?php echo($id); ?>)"></td>
+						
+						<!--media-->
 						<td>
 							<?php
 							//check media
@@ -90,7 +98,11 @@
 							?>
 							<input type="file" onchange="javascript:row_onchange(<?php echo($id); ?>)" name="image_<?php echo($id) ?>" id="image_<?php echo($id) ?>"/>
 						</td>
+						
+						<!--answer-->
 						<td><input maxlength="30" type="text" name="answer_<?php echo($id) ?>" id="answer_<?php echo($id) ?>" value="<?php echo($row['multi_1']) ?>" onchange="javascript:row_onchange(<?php echo($id); ?>)"/></td>
+						
+						<!--Multiple choice-->
 						<td>
 							<div>
 								<input maxlength="30" type="text" name="multi2_<?php echo($id) ?>" id="multi2_<?php echo($id) ?>" value="<?php echo($row['multi_2']) ?>" onchange="javascript:row_onchange(<?php echo($id); ?>)"/>
@@ -98,6 +110,8 @@
 								<input maxlength="30" type="text" name="multi4_<?php echo($id) ?>" id="multi4_<?php echo($id) ?>" value="<?php echo($row['multi_4']) ?>" onchange="javascript:row_onchange(<?php echo($id); ?>)"/>
 							</div>
 						</td>
+						
+						<!--Buttons-->
 						<td>
 							<input type="button" value="Verwijder" id="removeRow_<?php echo($id) ?>" onclick="javascript:removeRow(<?php echo($id) ?>)"/>
 						</td>
@@ -105,6 +119,8 @@
 				<?php }
 				?>
 			</table>
+			
+			<!--buttons-->
 			<input type="button" value="Rij toevoegen" id="bntAddRow" onclick="javascript:addRow();"/>
 		</fieldset>
 	</form>

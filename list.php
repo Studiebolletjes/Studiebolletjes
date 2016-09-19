@@ -71,10 +71,10 @@
     <meta charset="utf-8" />
     <meta name="author" content="David de Prez" />
     
-    <?php $menu->setHeader(); ?>
     <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/js/MessageBox.js"></script>
     <script src="/js/list.js"></script>
+    <script src="/js/MessageBox.js"></script>
+    <?php $menu->setHeader(); ?>
     
     <link href="/css/jquery-ui-1.10.4.custom.css" rel="stylesheet"/>
     <link href="/css/default.css" rel="stylesheet"/>
@@ -92,12 +92,15 @@
         Deze website heeft javascript nodig om te kunnen functioneren.
     </noscript>
     
+    <!--list of all subject-->
 	<div id="subjects_container">
-		<?php			
+		<?php
+			//get subjects
 			$subjects = fileManager::getSubjects($account->getGroup());
 			if (gettype($subjects) == "string"){
 				alert("Er is een fout opgetreden.", $subjects);
 			} elseif (gettype($subjects) == "array") {
+				//print subjects
 				foreach ($subjects as $subject){
 					addSubject($subject, $account);
 				}

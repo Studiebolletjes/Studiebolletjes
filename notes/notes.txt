@@ -1,0 +1,5 @@
+- with testing, try empty slots in everthing. (every time 1 textbox empty and others filled)
+- when showing media, the code for media creates the server. This hold the game files clean and everwhere use the same code for showing media. 
+
+*** edit ***
+Edit to database/file -> Class: upload

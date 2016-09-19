@@ -1,4 +1,14 @@
-img.example{
+html {
+	color: white;
+	background-image: url(/images/background.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #00c56a;
+	font-size: 16px;
+}
+
+.example img{
 	width: 100px;
 	height: 100px;
 }
@@ -14,12 +24,29 @@ img.example{
 }
 
 .exampleScreen {
-	width: 49%;
-	height: 100%;
+	width: 45%;
+	height: 99%;
 	float: left;
+	border:white 3px solid;
+	margin:2px;
 }
 
 .fullscreen {
 	height: 99%;
 	width: 99%;
+}
+
+.dropdownMenu {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	text-align: right;
+	background-color: transparent;
+	color: white;
+}
+
+.scrollbar {
+	overflow: auto;
+	position: relative;
+	height: 100%;
 }

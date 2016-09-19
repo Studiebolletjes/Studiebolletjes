@@ -33,6 +33,7 @@
         Deze website heeft javascript nodig om te kunnen functioneren.
     </noscript>
     
+    <!--score-->
 	<div id="score_container">
 		<label>Score: </label>
 		<label id="lblScore">0</label>
@@ -40,15 +41,19 @@
 		<label id="lblWrong">0</label>
 	</div>
 	
+	<!--input-->
 	<div id="game_container">
 		<label id="lblQuestion">{vraag}</label>
 		<input type="text" name="txtAnswer" id="answer"/>
 		<button type="button" id="bntNext" value="next">Controleer</button>
 		<label id="lblAnswer">{answer}</label>
 	</div>
-	<div id="mediaBox">
+	
+	<!--media-->
+	<div id="mediaBox" class="example">
 		<!--
 		here come the media like an image, video, ...
+		This is done by receiving HTML from server and added to this containter by javascript
 		-->
 	</div>
 </body>

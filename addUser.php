@@ -32,6 +32,7 @@
 </head>
 <body>
 	<form action="/addUser.php" method="post">
+		<!--Credentials-->
 		<fieldset>
 			<legend>Inlog gegevens</legend>
 			<div class="sort">
@@ -47,6 +48,8 @@
 				<input type="password" size="40" maxlength="31" name="txtPassRepeat" id="txtPassRepeat" value="" />
 			</div>
 		</fieldset>
+		
+		<!--User info-->
 		<fieldset>
 			<legend>Gebruikers gegevens</legend>
 			<div class="sort">
@@ -61,6 +64,8 @@
 				</select>
 			</div>
 		</fieldset>
+		
+		<!--Buttons-->
 		<input value="Opslaan" type="button" name="bntSave" id="bntSave" onclick="javascript:createUser()" />
 		<input value="Annuleren" type="button" name="bntCancel" id="bntCancel" onclick="javascript:gotoUrl('/users.php')" />
 	</form>

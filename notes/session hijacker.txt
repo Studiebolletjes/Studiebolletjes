@@ -1,0 +1,8 @@
+The only real solution is HTTPS. If you don't want to do SSL on your whole site 
+(maybe you have performance concerns), you might be able to get away with only 
+SSL protecting the sensitive areas. To do that, first make sure your login page
+is HTTPS. When a user logs in, set a secure cookie (meaning the browser will 
+only transmit it over an SSL link) in addition to the regular session cookie. 
+Then, when a user visits one of your "sensitive" areas, redirect them to HTTPS, 
+ and check for the presence of that secure cookie. A real user will have it, a 
+ session hijacker will not.
